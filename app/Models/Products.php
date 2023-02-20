@@ -19,7 +19,6 @@ class Products extends Model
 
     protected static function boot(){
         parent::boot();
-
     }
 
     public function brand(){
