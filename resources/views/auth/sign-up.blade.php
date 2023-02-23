@@ -1,3 +1,4 @@
+
 @extends('layouts.auth')
 @section('content')
     <x-forms.auth-forms title="Регистрация" action="" method="POST">
@@ -48,10 +49,11 @@
             </ul>
         </x-slot:socialAuth>
 
-        <x-forms.primary-button>
+        <x-slot:buttons>
             <div class="space-y-3 mt-5">
                 <div class="text-xxs md:text-xs"><a href="{{ route('login') }}" class="text-white hover:text-white/70 font-bold">Вход</a></div>
             </div>
-        </x-forms.primary-button>
+        </x-slot:buttons>
     </x-forms.auth-forms>
 @endsection()
+
