@@ -1,15 +1,12 @@
 
 @extends('layouts.auth')
 @section('content')
-    <x-forms.auth-forms title="Регистрация" action="" method="POST">
+    <x-forms.auth-forms title="Регистрация" action="{{ route('signInPost') }}" method="POST">
         @csrf
 
-        <x-forms.text-input :is-error="$errors->has('name')" type="text" placeholder="Name" required="true"></x-forms.text-input>
+        <x-forms.text-input :is-error="$errors->has('name')" type="text" placeholder="Name" required="true" name="name"></x-forms.text-input>
 
-
-
-
-        <x-forms.text-input :is-error="$errors->has('email')" type="email" placeholder="E-mail" required="true"></x-forms.text-input>
+        <x-forms.text-input :is-error="$errors->has('email')" type="email" placeholder="E-mail" required="true" name="email"></x-forms.text-input>
 
         @error('email')
         <x-forms.error>

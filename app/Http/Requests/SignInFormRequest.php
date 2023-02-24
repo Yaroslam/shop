@@ -16,7 +16,7 @@ class SignInFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['require', 'email:dns'],
+            'email' => ['required'],
             'password' => ['required']
         ];
     }
