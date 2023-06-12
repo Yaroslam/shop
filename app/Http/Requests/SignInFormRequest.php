@@ -3,21 +3,28 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Worksome\RequestFactories\Concerns\HasFactory;
 
 class SignInFormRequest extends FormRequest
 {
+    use HasFactory;
 
-    public function authorize()
+    public function authorize(): bool
     {
+        // зайти у нас может только гость
         return auth()->guest();
     }
 
-
-    public function rules()
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function rules(): array
     {
         return [
-            'email' => ['required'],
-            'password' => ['required']
+            'email' => ['required', 'email:dns'],
+            'password' => ['required'],
         ];
     }
 }
